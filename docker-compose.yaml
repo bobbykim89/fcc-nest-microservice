@@ -1,0 +1,10 @@
+# MongoDb, Postgres, Redis, Elasticsearch, Kibana, Mysql
+services:
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 7070:27017
+    environment:
+      MONGODB_INITDB_ROOT_USERNAME: root
+      MONGODB_INITDB_ROOT_PASSWORD: root
