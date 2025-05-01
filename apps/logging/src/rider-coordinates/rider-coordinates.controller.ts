@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateCoordinatesDto } from './dto';
 import { RiderCoordinatesService } from './rider-coordinates.service';
 
@@ -6,9 +6,10 @@ import { RiderCoordinatesService } from './rider-coordinates.service';
 export class RiderCoordinatesController {
   constructor(private coordinateService: RiderCoordinatesService) {}
 
-  @Get()
-  async getRiderCoordinates() {
-    return await this.coordinateService.getRiderCoordinates();
+  @Get(':id')
+  async getRiderCoordinates(@Param('id') param: string) {
+    console.log(param);
+    return await this.coordinateService.getRiderCoordinates(param);
   }
 
   @Post()
